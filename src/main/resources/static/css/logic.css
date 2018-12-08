@@ -1,0 +1,113 @@
+@media print {
+    .no-print {
+        display: none;
+    }
+
+    .print {
+        width: 2000px;
+        height: 2000px;
+        border: none !important;
+    }
+}
+.title-bar{
+    margin: auto;
+    font-size: 20px;
+}
+.posMarker{
+    float: left;
+}
+.graph-wrapper {
+
+    margin: 20px 0;
+    height: 600px;
+}
+
+.node-info-wrapper {
+    margin: 20px 0;
+
+}
+
+.node rect {
+    cursor: pointer;
+
+}
+
+.node.selected rect {
+    fill-opacity: 0.2;
+}
+.node.covered rect {
+    fill: grey;
+    fill-opacity: 0.2;
+    box-shadow: 2px 2px 2px #000000 ;
+
+}
+
+
+.node.selected.evidence rect {
+    fill: #428C6D;
+}
+
+.node.selected.fact rect {
+    fill: #fdb933;
+}
+
+.node.selected.law rect {
+    fill: #f3715c;
+}
+
+.node.selected.conclusion rect {
+    fill: #6495ED;
+}
+
+.node.selected.final-conclusion rect {
+    fill: #1A4FA3;
+}
+
+
+
+.node.evidence text {
+    fill: #428C6D;
+}
+
+.node.fact text {
+    fill: #fdb933;
+}
+
+.node.law text {
+    fill: #f3715c;
+}
+
+.node.conclusion text {
+    fill: #6495ED;
+}
+
+.node.final-conclusion text {
+    fill: #1A4FA3;
+}
+
+.node.evidence rect {
+    stroke: #428C6D;
+}
+
+.node.fact rect {
+    stroke: #fdb933;
+
+}
+
+.node.law rect {
+    stroke: #f3715c;
+
+}
+
+.node.conclusion rect {
+    stroke: #6495ED;
+
+}
+
+.node.final-conclusion rect {
+    stroke: #1A4FA3;
+}
+
+.node-table-wrapper button {
+    margin-right: 3px;
+}

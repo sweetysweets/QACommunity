@@ -1,0 +1,31 @@
+.page-content{
+    position: relative;
+    top: 60px;
+}
+
+.page-content section{
+    margin-top: 20px;
+}
+
+.page-content .graph-wrapper{
+    border: 1px solid lightgray;
+    padding: 3px;
+}
+
+.container10 {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.file-operation-btns {
+    float: right;
+}
+
+#file-choose-btn {
+    display: inline-block;
+}
+
+.show-bar {
+    overflow-x: auto;
+    overflow-y: auto;
+}

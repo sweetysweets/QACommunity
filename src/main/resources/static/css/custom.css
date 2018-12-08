@@ -1,0 +1,176 @@
+.evidence{
+    font-size: 15px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left:24px;
+    width: 100%;
+}
+.evidence_plaintiff{
+    background-color: #5ed7e5;
+}
+.evidence_splitLine{
+    border-bottom: 1px solid lightgrey;
+}
+
+.evidence_a{
+    text-decoration: none;
+    color:black;
+    word-wrap:break-word;
+}
+.head_chain{
+    display: inline-block;
+    border: 1px solid black;
+    margin-left: 2%;
+    padding: 3px;
+    margin-top: 5px;
+    white-space:nowrap;
+}
+
+.head_div{
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+/*.head_chain {*/
+    /*display: inline-block;*/
+    /*border: 1px solid black;*/
+    /*margin-left: 2%;*/
+    /*padding: 3px;*/
+    /*margin-top: 1%;*/
+    /*white-space:nowrap;*/
+/*}*/
+.myRemove { color:rgba(0,0,0,0); transition:0.5s; }
+.myRemove:hover { color:rgba(78,78,78,1); }
+.headRemove { color:rgba(0,0,0,0); transition:0.5s; }
+.headRemove:hover { color:rgba(78,78,78,1); }
+
+.headList{
+    margin-top: -2%;
+}
+
+.addHead{
+
+    padding-left: 1%;
+
+}
+
+.menu_graph{
+    display:none;
+    /*z-index: 99;*/
+    /*position: absolute;*/
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+.dropdown-menu:hover{
+    cursor: pointer;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-submenu > a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+.dropdown-submenu:hover > a:after {
+    border-left-color: #fff;
+}
+.dropdown-submenu.pull-left {
+    float: none;
+}
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.menu-label{
+    cursor: pointer;
+}
+.menu-label:hover{
+    background: rgba(59, 59, 59, 0.2);
+}
+
+.panel-body label{
+    font-size: 14px;
+}
+
+/*switch*/
+.mui-switch {
+    width: 42px;
+    height: 16px;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 9px;
+    /*border-top-left-radius: 20px;*/
+    /*border-top-right-radius: 20px;*/
+    /*border-bottom-left-radius: 20px;*/
+    /*border-bottom-right-radius: 20px;*/
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    outline: none; }
+.mui-switch:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border-radius: 9px;
+    /*border-top-left-radius: 20px;*/
+    /*border-top-right-radius: 20px;*/
+    /*border-bottom-left-radius: 20px;*/
+    /*border-bottom-right-radius: 20px;*/
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); }
+.mui-switch:checked {
+    border-color: #64bd63;
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63; }
+.mui-switch:checked:before {
+    left: 26px; }
+.mui-switch.mui-switch-animbg {
+    transition: background-color ease 0.4s; }
+.mui-switch.mui-switch-animbg:before {
+    transition: left 0.3s; }
+.mui-switch.mui-switch-animbg:checked {
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    background-color: #64bd63;
+    transition: border-color 0.4s, background-color ease 0.4s; }
+.mui-switch.mui-switch-animbg:checked:before {
+    transition: left 0.3s; }
+.mui-switch.mui-switch-anim {
+    transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s; }
+.mui-switch.mui-switch-anim:before {
+    transition: left 0.3s; }
+.mui-switch.mui-switch-anim:checked {
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63;
+    transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s; }
+.mui-switch.mui-switch-anim:checked:before {
+    transition: left 0.3s; }

@@ -1,0 +1,75 @@
+
+
+.graph-primitive-wrapper ul {
+    list-style: none;
+    padding: 0;
+}
+
+.graph-primitive-wrapper ul li {
+    float: left;
+    margin-right: 10px;
+    border-radius: 12px;
+    padding: 4px 7px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #84C2B7;
+    color: white;
+}
+
+.graph-primitive-wrapper ul li:hover {
+    background-color: #92c7be;
+}
+
+
+
+.graph-tools-wrapper {
+    text-align: right;
+}
+
+
+.floor10 {
+    z-index: 10;
+}
+
+#dragBox {
+    position: absolute;
+}
+.graph-wrapper{
+    height: 800px;
+}
+.table-header {
+    font-weight: 900;
+}
+
+.table-operations button {
+    margin: 1%;
+}
+.selected rect{
+     fill: rgba(89, 144, 203, 0.65)
+ }
+.selected circle{
+     fill: rgba(89, 144, 203, 0.65)
+ }
+
+.not-selected rect{
+    fill: white
+}
+
+button[data-toggle~=button]{
+    border-radius: 50%;
+}
+button.pushdown{
+    background: rgba(116, 116, 116, 0.65);
+}
+g.ecm-body rect{
+    stroke: #5798ff;
+}
+g.ecm-header circle{
+    stroke: #7fb988;
+}
+g.ecm-arrow circle{
+    stroke: rgb(202, 122, 22);
+}
+g.ecm-joint rect{
+    stroke: #652b69;
+}

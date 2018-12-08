@@ -1,0 +1,88 @@
+.list-header {
+    width: 60%;
+    text-align: center;
+    font-weight: 200;
+    display: block;
+    margin: 100px auto 40px;
+}
+
+.list-grid {
+    height: 336px;
+    text-align: center;
+    padding: 4px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.list-grid:hover{
+    border: 2px solid #348CCC;
+}
+
+.plus-grid {
+    height: 336px;
+    text-align: center;
+    padding: 4px;
+    border: 1px dashed #ddd;
+    margin-top: 10px;
+}
+
+.plus-grid:hover{
+    border: 2px solid #348CCC;
+}
+
+.plus-grid img {
+    opacity: 0.4;
+}
+
+.item-list{
+    list-style: none;
+    font-family: 'Microsoft Yahei';
+}
+
+.item-list .header{
+    font-weight: bold;
+    color: #555;
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+    padding-left: 10px;
+    line-height:40px;
+    height: 40px;
+    width:100%;
+}
+.item-list .item:hover{
+    background-color: #F3F3F3;
+}
+
+.item-list .item{
+    color: #333;
+    border-bottom: 1px solid #EBEBEB;
+    padding-left: 10px;
+    line-height:40px;
+    height: 40px;
+    width:100%;
+}
+
+.item-list .identification{
+    width: 25%;
+    float: left;
+}
+
+.item-list .title{
+    width: 25%;
+    float: left;
+}
+
+.item-list .caseReason{
+    width: 25%;
+    float: left;
+}
+
+.item-list .caseNumber{
+    width: 25%;
+    float: left;
+}
+
+.item-list .updatedDate{
+    width: 25%;
+    float: left;
+}

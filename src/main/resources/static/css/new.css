@@ -1,0 +1,40 @@
+
+.file-operation-btns {
+    float: right;
+}
+
+.graph-primitive-wrapper ul {
+    list-style: none;
+    padding: 0;
+}
+
+.graph-primitive-wrapper ul li {
+    float: left;
+    margin-right: 10px;
+    border-radius: 12px;
+    padding: 4px 7px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #84C2B7;
+    color: white;
+}
+
+.graph-primitive-wrapper ul li:hover {
+    background-color: #92c7be;
+}
+
+.graph-tools-wrapper {
+    text-align: right;
+}
+
+.graph-wrapper {
+    height: 800px;
+}
+
+.floor10 {
+    z-index: 10;
+}
+
+#dragBox {
+    position: absolute;
+}
