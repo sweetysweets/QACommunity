@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nju.zhihu.Dao.CommentDao">
+
+    <select id="getCommentListByAnswerId" resultType="Comment">
+        SELECT comment.*,user.avater as avater,user.nickname as nickname
+        FROM comment,user
+        WHERE answer_id = #{answer_id} AND user.user_id = comment.user_id
+        limit #{start},#{pagesize}
+    </select>
+
+    <!--<update id="updateUser">-->
+        <!--UPDATE user-->
+        <!--SET NAME = #{user.name},-->
+        <!--SEX = #{user.sex},-->
+        <!--AGE = #{user.age}-->
+        <!--WHERE ID = #{user.id}-->
+    <!--</update>-->
+    <insert id="addComment">
+        INSERT INTO
+        comment(user_id,answer_id,reply_id,content,time)
+        VALUES (
+        #{comment.user_id},
+        #{comment.answer_id},
+         #{comment.reply_id},
+         #{comment.content},
+         #{comment.time}
+        )
+    </insert>
+    <delete id="deleteCommentById">
+        DELETE comment WHERE comment_id = #{id}
+    </delete>
+
+</mapper>
