@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminLogin</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/animate.css}"/>
+    <link rel="stylesheet" th:href="@{css/login.css}"/>
+    <link rel="stylesheet" th:href="@{css/style.css}"/>
+    <link rel="stylesheet" th:href="@{css/mystyle.css}"/>
+    <link rel="stylesheet" th:href="@{css/font-awesome.min.css} ">
+
+
+</head>
+<body id="wrapper">
+<div class  ="row border-bottom">
+    <div class="navbar-header nav navbar-top-links">
+        <strong><a class="navbar-brand" href="/login"><span class="m-r-sm text-muted welcome-message" style="font-size:30px">QA社区</span></a></strong>
+    </div>
+</div>
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+        <div>
+
+            <h1 class="logo-name text－left" style="font-size: 113px">QA</h1>
+
+        </div>
+        <h3>欢迎加入QA</h3>
+        <p>
+        </p>
+
+        <form class="m-t" role="form" method="post" >
+                <div class="form-group">
+                    <input type="text" id="userId" name="userid" class="form-control" placeholder="请输入用户编号" >
+                    <br>
+                    <input type="text" id="password" name="password" class="form-control" placeholder="请输入用户密码" >
+                </div>
+
+            <button type="button" id="login"class="btn btn-primary block full-width m-b">登录</button>
+
+
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

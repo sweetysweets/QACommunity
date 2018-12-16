@@ -16,4 +16,10 @@ public class ViewController {
     public String index() {
         return "redirect:/index";
     }
+
+    @RequestMapping(value = "/login")
+    public String getLoginView(){return "login";}
+    @RequestMapping(value = "/deleteQuestion")
+    public String getDeleteQuestionView(){return "deleteQuestion";}
+
 }
