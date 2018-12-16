@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RestController
@@ -16,9 +18,11 @@ public class QuestionController {
     @Autowired(required = false)
     QuestionDao questionDao;
     @RequestMapping(value = "/submitquestion")
-    public int submitQuestion(@RequestParam("uid") String uid, @RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("time")Date time,@RequestParam("state") int state){
-        int userid = Integer.parseInt(uid);
-        Timestamp timestamp = new Timestamp(time.getTime());
+    public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("time")String time,@RequestParam("state") int state)throws ParseException {
+        System.out.println("time"+time);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = sdf.parse(time);
+        Timestamp timestamp = new Timestamp(date.getTime());
         Question question= new Question();
         question.setUid(userid);
         question.setTitle(title);

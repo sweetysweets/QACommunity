@@ -38,6 +38,10 @@ public class Question {
         this.content = content;
     }
 
+    public String getContent() {
+        return content;
+    }
+
     public void setTime(Timestamp time) {
         this.time = time;
     }
