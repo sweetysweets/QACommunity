@@ -19,7 +19,7 @@ public class ViewController {
 
     @RequestMapping(value = "/login")
     public String getLoginView(){return "login";}
-    @RequestMapping(value = "/deleteQuestion")
-    public String getDeleteQuestionView(){return "deleteQuestion";}
+    @RequestMapping(value = "/dealQuestion")
+    public String getDealQuestionView(){return "dealQuestion";}
 
 }
