@@ -4,11 +4,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nju.zhihu.Dao.CommentDao">
 
-    <select id="getCommentListByAnswerId" resultType="Comment">
-        SELECT comment.*,user.avater as avater,user.nickname as nickname
+    <!-- 定义resultMap -->
+    <resultMap type="com.nju.zhihu.Entity.Comment" id="userComment">
+        <!-- 配置id的对应 -->
+        <id column="id" property="comment_id"/>
+
+
+        <result column="user_id" property="user_id"/>
+        <result column="answer_id" property="answer_id"/>
+        <result column="reply_id" property="reply_id"/>
+        <result column="content" property="content"/>
+        <result column="time" property="time"/>
+
+
+
+        <!-- 配置对1的数据类型，即User类中的Department对象是单一的具体类型
+            property: 这个是在User类中的字段名称
+            javaType: 这个是java类的全名，是Department类的全名
+         -->
+        <association property="user" javaType="com.nju.zhihu.Entity.User">
+            <result column="nickname" property="name"/>
+            <result column="avater" property="avater"/>
+        </association>
+
+    </resultMap>
+
+    <select id="getCommentListByAnswerId" resultMap="userComment">
+        SELECT comment.*,user.*
         FROM comment,user
         WHERE answer_id = #{answer_id} AND user.user_id = comment.user_id
-        limit #{start},#{pagesize}
+        ORDER BY comment.time DESC;
     </select>
 
     <!--<update id="updateUser">-->
