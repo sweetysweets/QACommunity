@@ -35,10 +35,9 @@ public class CommentController {
 
 
 
-    @RequestMapping("/getCommentListByPage")
-    public List<Comment> getCommentList(@RequestParam("answer_id")int answer_id,@RequestParam("pagesize")int pagesize,@RequestParam("pagenumber")int pagenumber){
-        int start = pagenumber*pagesize;
-        return commentDao.getCommentListByAnswerId(answer_id,start,pagesize);
+    @RequestMapping("/getCommentList")
+    public List<Comment> getCommentList(@RequestParam("answer_id")int answer_id){
+        return commentDao.getCommentListByAnswerId(answer_id);
     }
 
 

@@ -10,6 +10,7 @@ public class Comment {
     int reply_id;
     String content;
     Date time;
+    User user;
 
     public int getComment_id() {
         return comment_id;
@@ -58,5 +59,13 @@ public class Comment {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
