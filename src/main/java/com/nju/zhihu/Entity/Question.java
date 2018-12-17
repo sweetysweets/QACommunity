@@ -9,7 +9,15 @@ public class Question {
     private String content;
     private Timestamp time;
     private int state;
+    private User user;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public void setQid(int qid) {
         this.qid = qid;

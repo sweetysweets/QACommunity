@@ -8,16 +8,15 @@
     <resultMap type="com.nju.zhihu.Entity.Comment" id="userComment">
         <!-- 配置id的对应 -->
         <id column="id" property="comment_id"/>
-
-
+        <!-- 配置其他字段的对应关系
+                column: 查询结果中的列名字，如果没有起别名，那么就是表中的字段名
+                property: java类中的属性名称
+        -->
         <result column="user_id" property="user_id"/>
         <result column="answer_id" property="answer_id"/>
         <result column="reply_id" property="reply_id"/>
         <result column="content" property="content"/>
         <result column="time" property="time"/>
-
-
-
         <!-- 配置对1的数据类型，即User类中的Department对象是单一的具体类型
             property: 这个是在User类中的字段名称
             javaType: 这个是java类的全名，是Department类的全名

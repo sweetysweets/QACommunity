@@ -27,13 +27,7 @@
     </select>
 
 
-    <!--<update id="updateUser">-->
-        <!--UPDATE user-->
-        <!--SET NAME = #{user.name},-->
-        <!--SEX = #{user.sex},-->
-        <!--AGE = #{user.age}-->
-        <!--WHERE ID = #{user.id}-->
-    <!--</update>-->
+
     <insert id="addUser">
         INSERT INTO
         user(nickname, avater,token)
