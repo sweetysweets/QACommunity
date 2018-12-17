@@ -24,7 +24,7 @@
         WHERE a.user_id = #{id} and a.user_followed_id = b.user_id ;
     </select>
 
-    <resultMap id="getQuestionAndAnswerByUserId" type="com.nju.zhihu.Entity."
+    <!--<resultMap id="getQuestionAndAnswerByUserId" type="com.nju.zhihu.Entity."-->
     <select id="getQuestionByUserId" resultType="Question">
         SELECT
         b.question_id as qid,
