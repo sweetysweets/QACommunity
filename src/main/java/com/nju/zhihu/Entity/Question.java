@@ -11,6 +11,15 @@ public class Question {
     private String content;
     private Timestamp time;
     private int state;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public void setQid(int qid) {
         this.qid = qid;
@@ -40,9 +49,9 @@ public class Question {
         this.content = content;
     }
 
-    public String getContent() {
-        return content;
-    }
+
+    public String getContent(){return content; }
+
 
     public void setTime(Timestamp time) {
         this.time = time;

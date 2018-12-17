@@ -25,8 +25,6 @@ public class AdminController {
                 return 1;
             }
         }
-
-
     }
     @RequestMapping(value = "/deletequestion")
     public int deleteQuestion(@RequestParam("qid")String qid){
