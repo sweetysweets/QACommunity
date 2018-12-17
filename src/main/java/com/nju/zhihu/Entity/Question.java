@@ -1,6 +1,8 @@
 package com.nju.zhihu.Entity;
 
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Question {
     private int qid;
