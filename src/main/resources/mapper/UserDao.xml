@@ -9,7 +9,8 @@
         user_id as id,
         token as token,
         nickname as name,
-        avater as avater
+        avater as avater,
+        discription as discription,
         FROM user
         WHERE token = #{id}
     </select>
@@ -19,9 +20,10 @@
         b.user_id as id,
         token as token,
         nickname as name,
-        avater as avater
-        FROM follow_user a, user b
-        WHERE a.user_id = #{id} and a.user_followed_id = b.user_id ;
+        avater as avater,
+        description as description
+        FROM follow_user as a, user as b
+        WHERE a.user_id = #{id} and a.user_followed_id = b.user_id;
     </select>
 
 
