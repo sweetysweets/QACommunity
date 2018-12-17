@@ -9,8 +9,7 @@ public class Question {
     private String content;
     private Timestamp time;
     private int state;
-//    private String user_avater;
-//    private String user_name;
+
 
     public void setQid(int qid) {
         this.qid = qid;
@@ -58,19 +57,5 @@ public class Question {
         return state;
     }
 
-//    public void setUser_avater(String user_avater){
-//        this.user_avater = user_avater ;
-//    }
-//
-//    public String getUser_avater(){
-//        return user_avater;
-//    }
-//
-//    public void setUser_name(String user_name) {
-//        this.user_name = user_name;
-//    }
-//
-//    public String getUser_name() {
-//        return user_name;
-//    }
+
 }
