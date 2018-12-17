@@ -14,6 +14,31 @@
         WHERE token = #{id}
     </select>
 
+    <select id="getFollowUserById" resultType="User">
+        SELECT
+        b.user_id as id,
+        token as token,
+        nickname as name,
+        avater as avater
+        FROM follow_user a, user b
+        WHERE a.user_id = #{id} and a.user_followed_id = b.user_id ;
+    </select>
+
+    <resultMap id="getQuestionAndAnswerByUserId" type="com.nju.zhihu.Entity."
+    <select id="getQuestionByUserId" resultType="Question">
+        SELECT
+        b.question_id as qid,
+        b.user_id as uid,
+        b.title as title,
+        b.content as content,
+        b.time as time,
+        b.state as state,
+        a.avater as user_avater,
+        a.nickname as user_name
+        FROM user a, question b
+        WHERE a.user_id = #{id} and a.user_id = b.user_id
+        ORDER BY b.time DESC;
+    </select>
     <!--<update id="updateUser">-->
         <!--UPDATE user-->
         <!--SET NAME = #{user.name},-->

@@ -15,7 +15,4 @@ public interface CommentDao {
     List<Comment> getCommentListByAnswerId(@Param("answer_id")int answer_id, @Param("start")int start, @Param("pagesize")int pagesize);
     void deleteCommentById(@Param("id") int id);
 
-
-
-
 }

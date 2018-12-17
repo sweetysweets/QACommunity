@@ -4,11 +4,11 @@ package com.nju.zhihu.Entity;
 
 public class Admin {
 
-        private int id;
+    private int id;
 
-        private String name;
+    private String name;
 
-        private String password;
+    private String password;
 
     public int getId() {
         return id;
