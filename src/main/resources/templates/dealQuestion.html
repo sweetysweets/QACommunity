@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DealQuestion</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/animate.css}"/>
+    <link rel="stylesheet" th:href="@{css/login.css}"/>
+    <link rel="stylesheet" th:href="@{css/style.css}"/>
+    <link rel="stylesheet" th:href="@{css/mystyle.css}"/>
+    <link rel="stylesheet" th:href="@{css/font-awesome.min.css} ">
+</head>
+<body>
+<div class  ="row border-bottom">
+    <div class="navbar-header nav navbar-top-links">
+        <strong><a class="navbar-brand" href="/login"><span class="m-r-sm text-muted welcome-message" style="font-size:30px">QA</span></a></strong>
+    </div>
+</div>
+<!--<div class="row wrapper border-bottom white-bg page-heading">-->
+    <!--<div class="col-sm-6" style="margin-top:20px">-->
+
+    <!--</div>-->
+    <!--<div class="col-sm-6">-->
+        <!--<ol class="breadcrumb" style="margin-top:30px">-->
+
+            <!--<li class="active" style="font-size:25px">-->
+                <!--<a href="/dealQuestion">处理问题</a>-->
+            <!--</li>-->
+
+
+        <!--</ol>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="row main " >
+
+    <div class=" col-md-12 article-content">
+        <div class="card">
+            <div class="card-block">
+
+                <div class="ibox float-e-margins">
+                    <div class="row" style="margin-top:10px">
+                        <div class="col-sm-1">
+                            <img th:src="@{img/dealIcon.png}" style="width:60px;height:60px"/>
+                            </div>
+
+                        <blockquote>
+
+                            <p style="font-size:25px;">处理问题</p>
+                        </blockquote>
+                    </div>
+
+                    <div class="ibox-content">
+                        <table id="tabpre" border="1" width="100%">
+                            <tr>
+                                <th style="text-align:center" width="6%">编号</th>
+                                <th style="text-align:center" width="6%">用户编号</th>
+                                <th style="text-align:center" width="20%">问题名称</th>
+                                <th style="text-align:center" width="50%">问题内容</th>
+                                <th style="text-align:center" width="10%">发题时间</th>
+                                <th style="text-align:center" width="6%">问题状态</th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="changeInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form id="preOrder" method="post">
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="updateChange()">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="delInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body ">
+                <label id="delorder" class="row">删除预约订单：</label>
+                <P>此操作不可逆，确定删除吗？</P>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="confirmDel()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

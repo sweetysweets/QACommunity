@@ -39,7 +39,9 @@ public class Question {
         this.content = content;
     }
 
+
     public String getContent(){return content; }
+
 
     public void setTime(Timestamp time) {
         this.time = time;
@@ -56,6 +58,4 @@ public class Question {
     public int getState() {
         return state;
     }
-
-
 }
