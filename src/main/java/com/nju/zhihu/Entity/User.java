@@ -10,6 +10,8 @@ public class User {
 
     private String avater;
 
+    private String description;
+
     private String token;
 
     //我提出的问题
@@ -44,6 +46,13 @@ public class User {
 
     public void setAvater(String avater) {
         this.avater = avater;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getToken() {

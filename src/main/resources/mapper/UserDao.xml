@@ -10,9 +10,9 @@
         token as token,
         nickname as name,
         avater as avater,
-        discription as discription,
+        description as description
         FROM user
-        WHERE token = #{id}
+        WHERE user_id = #{id}
     </select>
 
     <select id="getFollowUserById" resultType="User">
