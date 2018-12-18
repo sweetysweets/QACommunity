@@ -56,7 +56,14 @@
         ORDER BY b.time DESC;
     </select>
     <select id="getAllQuestion" resultMap="Question">
-
-
+        SELECT
+        question_id as qid,
+        user_id as uid,
+        title as title,
+        content as content,
+        time as time,
+        state as state
+        FROM question
+        Where state !=0
     </select>
 </mapper>
