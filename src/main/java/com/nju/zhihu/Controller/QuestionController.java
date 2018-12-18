@@ -21,7 +21,7 @@ public class QuestionController {
     UserDao userDao;
     @RequestMapping(value = "/submitquestion")
     public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content,@RequestParam("state") int state)throws ParseException {
-        Date date = new Date(System.currentTimeMillis()+14*60*60*1000);
+        Date date = new Date(System.currentTimeMillis());
         Timestamp timestamp = new Timestamp(date.getTime());
         System.out.println("time:"+timestamp);
         Question question= new Question();
@@ -34,8 +34,9 @@ public class QuestionController {
         return 0;
 
     }
-    @RequestMapping(value = "/showquestion")
+    @RequestMapping(value = "/getallquestion")
     public List<Question> getAllQuestion(){
+        List<Question>questions = questionDao.getAllQuestion();
         return questionDao.getAllQuestion();
 
     }
