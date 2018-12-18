@@ -6,21 +6,33 @@ import java.util.TimeZone;
 import java.util.Date;
 
 public class Problem {
-
-    private int id;
+    //提问用户ID
+    private int uid;
+    //问题ID
+    private int qid;
     //提出问题用户头像
     private String avater;
-    //问题内容
+    //问题标题
     private String title;
+    //问题内容
+    private String content;
     //提问时间
     private Date createTime;
 
-    public int getId() {
-        return id;
+    public int getUid() {
+        return uid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public int getQid() {
+        return qid;
+    }
+
+    public void setQid(int qid) {
+        this.qid = qid;
     }
 
     public String getAvater() {
@@ -37,6 +49,13 @@ public class Problem {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm")

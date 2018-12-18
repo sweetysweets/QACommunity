@@ -23,4 +23,11 @@ public class UserController {
         userMap.put("userList",user);
         return userMap;
     }
+    @RequestMapping(value = "/usersinfo")
+    public Map<String,Object> Userinfo(@RequestParam("userid") String userid) {
+        Map<String,Object> userMap = new HashMap<String,Object>();
+        List<User> user = userDao.getUserById(userid);
+        userMap.put("userInfo",user);
+        return userMap;
+    }
     }

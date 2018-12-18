@@ -6,10 +6,12 @@
 
     <select id="getProblemByUserid" resultType="Problem">
         SELECT
-        a.user_id as id,
+        a.user_id as uid,
+        b.question_id as qid,
         token as token,
         avater as avater,
         time as createTime,
+        title as title,
         content as content
         FROM user as a,question as b,follow_quesion as c
         WHERE c.user_id = #{id} and a.user_id = b.user_id and b.question_id = c.question_followed_id

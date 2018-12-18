@@ -11,9 +11,9 @@ import java.util.List;
 public interface UserDao {
 
     void addUser(@Param("user") User user);
-    User getUserById(@Param("id") String token);
 
     //查询该用户关注的用户
     List<User> getFollowUserById(@Param("id") String token);
-
+    //查询关注的用户的用户信息
+    List<User> getUserById(@Param("id") String token);
 }
