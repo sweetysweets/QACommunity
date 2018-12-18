@@ -1,6 +1,8 @@
 package com.nju.zhihu.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.TimeZone;
 import java.util.Date;
 
 public class Problem {
@@ -9,7 +11,7 @@ public class Problem {
     //提出问题用户头像
     private String avater;
     //问题内容
-    private String content;
+    private String title;
     //提问时间
     private Date createTime;
 
@@ -29,15 +31,16 @@ public class Problem {
         this.avater = avater;
     }
 
-    public String getContent() {
-        return content;
+    public String getTitle() {
+        return title;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Date getCreateTime() {
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    public java.util.Date getCreateTime() {
         return createTime;
     }
 
