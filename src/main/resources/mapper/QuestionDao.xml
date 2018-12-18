@@ -55,4 +55,8 @@
 													)
         ORDER BY b.time DESC;
     </select>
+    <select id="getAllQuestion" resultMap="Question">
+
+
+    </select>
 </mapper>

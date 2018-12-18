@@ -34,7 +34,11 @@ public class QuestionController {
         return 0;
 
     }
+    @RequestMapping(value = "/showquestion")
+    public List<Question> getAllQuestion(){
+        return questionDao.getAllQuestion();
 
+    }
     @RequestMapping(value = "/getmyfocus")
     public List<Question> getMyFocus(@RequestParam("userid") int userid){
         return questionDao.getMyFocus(userid);
