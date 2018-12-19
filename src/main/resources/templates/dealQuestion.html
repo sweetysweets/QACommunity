@@ -203,8 +203,25 @@
             data:{"aid":aid},
             url:"/answer/deleteanswer",
             success:function(){
-                alert('已成功删除')
+                alert('已成功删除');
             }
+        });
+    }
+    function changeInfo(){
+        var qid = $('#quesId').val();
+        var qstate = $('#quesState').val();
+        $.ajax({
+            type:"POST",
+            url:"/updateQuestion",
+            data:{"qid":qid,"qstate":qstate},
+            success:function(data){
+                window.location.reload();
+            },error:function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert(XMLHttpRequest.status);
+                 alert(XMLHttpRequest.readyState);
+                 alert(textStatus);
+
+    }
         });
     }
 

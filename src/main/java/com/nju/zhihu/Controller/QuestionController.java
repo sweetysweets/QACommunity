@@ -50,6 +50,10 @@ public class QuestionController {
         List<Question> questions = questionDao.getAllQuestion();
         return questionDao.getAllQuestion();
     }
+    @RequestMapping(value = "/updatequestion")
+    public void updateQuestion(@RequestParam("qid") int qid,@RequestParam("qstate") int qstate){
+        questionDao.updateQuestion(qid,qstate);
+    }
 
     @RequestMapping(value = "/getmyfocususerquestion")
     public List<Question> getMyFocusUserQuestion(@RequestParam("userid") int userid){
