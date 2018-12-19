@@ -14,6 +14,7 @@ public class Question {
     private Timestamp time;
     private int state;
     private User user;
+//    private
 
     public User getUser() {
         return user;

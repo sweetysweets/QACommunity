@@ -16,6 +16,7 @@ import java.util.Map;
 public class UserController {
     @Autowired(required = false)
     private UserDao userDao;
+
     @RequestMapping(value = "/focus_users")
     public Map<String,Object> listUser(@RequestParam("userid") String userid) {
         Map<String,Object> userMap = new HashMap<String,Object>();
@@ -30,4 +31,4 @@ public class UserController {
         userMap.put("userInfo",user);
         return userMap;
     }
-    }
+}

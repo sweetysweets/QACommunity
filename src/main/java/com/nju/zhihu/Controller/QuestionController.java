@@ -23,7 +23,10 @@ public class QuestionController {
     public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content,@RequestParam("state") int state)throws ParseException {
         Date date = new Date(System.currentTimeMillis());
         Timestamp timestamp = new Timestamp(date.getTime());
-        System.out.println("time:"+timestamp);
+
+//        Date timedate = new Date();
+
+//        System.out.println("time:"+timestamp);
         Question question= new Question();
         question.setUid(userid);
         question.setTitle(title);
@@ -35,9 +38,25 @@ public class QuestionController {
 
     }
     @RequestMapping(value = "/getallquestion")
-    public List<Question> getAllQuestion(){
-        List<Question>questions = questionDao.getAllQuestion();
+    public List<Question> getAllQuestion() {
+        List<Question> questions = questionDao.getAllQuestion();
         return questionDao.getAllQuestion();
+    }
+
+    @RequestMapping(value = "/getmyfocususerquestion")
+    public List<Question> getMyFocusUserQuestion(@RequestParam("userid") int userid){
+        return questionDao.getMyFocusUserQuestion(userid);
+    }
+
+    @RequestMapping(value = "/getmyfocusquestion")
+    public List<Question> getMyFocusQuestion(@RequestParam("userid") int userid){
+        return questionDao.getMyFocusQuestion(userid);
+    }
+
+
+    @RequestMapping(value = "/getallquestions")
+    public List<Question> getAllQuestions(@RequestParam("userid") int userid){
+        return questionDao.getAllQuestions(userid);
 
     }
     @RequestMapping(value = "/getmyfocus")
