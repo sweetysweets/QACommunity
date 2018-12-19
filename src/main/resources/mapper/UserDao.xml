@@ -14,6 +14,16 @@
         FROM user
         WHERE user_id = #{id}
     </select>
+    <select id="getUserByToken" resultType="User">
+        SELECT
+        user_id as id,
+        token as token,
+        nickname as name,
+        avater as avater,
+        description as description
+        FROM user
+        WHERE token = #{id}
+    </select>
 
     <select id="getFollowUserById" resultType="User">
         SELECT
