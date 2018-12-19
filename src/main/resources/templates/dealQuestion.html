@@ -148,6 +148,18 @@
 		$('#tabquestion').append(str);
         }
     }
+    function showDialog(node){
+        $('#changeInfo').modal('show');
+        var tr = node.parentNode.parentNode;
+        var qid = tr.cells[0].innerText;
+        $.ajax({
+            type:"POST",
+            url:"/getquestiondetail",
+            success:function(data){
+                alert(data.qid);
+            }
+        });
+    }
 
 </script>
 
