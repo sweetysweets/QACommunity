@@ -12,5 +12,5 @@ public interface AnswerDao {
     void addAnswer(@Param("answer")Answer answer);
     List<Answer> queryAnswerByQuestionId(int questionId);
     Answer queryAnswerByAnswerId(int answerId);
-
+    List<Answer> getAnswers();
 }

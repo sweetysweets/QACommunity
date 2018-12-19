@@ -6,6 +6,29 @@
     <select id="queryAnswerByAnswerId" resultType="com.nju.zhihu.Entity.Answer">
         select * from answer where answer_id = #{answerId}
     </select>
+    <select id="getAnswers" resultType="com.nju.zhihu.Entity.Answer">
+        select * from answer
+    </select>
+    <select id="queryAnswerByQuestionId" resultType="com.nju.zhihu.Entity.Answer">
+        select
+          a.answer_id,
+          a.user_id,
+          a.content,
+          a.support,
+          a.against,
+          a.state,
+          a.time
+        from
+          answer a,
+          question q,
+          updating up
+        where
+          up.answer_id = a.answer_id
+        and
+          up.question_id = q.question_id
+        and
+          q.question_id = #{questionId}
+    </select>
     <insert id="addAnswer" >
         insert into answer(answer_id,user_id,content,support,against,state,time )
         values (

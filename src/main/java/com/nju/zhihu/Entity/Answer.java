@@ -2,7 +2,7 @@ package com.nju.zhihu.Entity;
 
 import java.util.Date;
 
-public class Answer {
+public class Answer{
     int answer_id;
     int user_id;
     String content;
@@ -10,7 +10,6 @@ public class Answer {
     int against;
     int state;
     Date time;
-
 
     public int getAnswer_id() {
         return answer_id;
@@ -67,4 +66,8 @@ public class Answer {
     public void setTime(Date time) {
         this.time = time;
     }
+
+
+
+
 }
