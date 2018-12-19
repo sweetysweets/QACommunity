@@ -20,14 +20,13 @@
           a.time
         from
           answer a,
-          question q,
           updating up
         where
           up.answer_id = a.answer_id
         and
-          up.question_id = q.question_id
+          up.question_id = #{questionId}
         and
-          q.question_id = #{questionId}
+          up.type=1
     </select>
     <insert id="addAnswer" >
         insert into answer(answer_id,user_id,content,support,against,state,time )

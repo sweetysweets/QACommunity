@@ -22,9 +22,11 @@ import java.util.List;
 @RestController
 public class QuestionController {
     @Autowired(required = false)
-    QuestionDao questionDao;
-    AnswerDao answerDao;
-    UserDao userDao;
+    private  QuestionDao questionDao;
+    @Autowired(required = false)
+    private  AnswerDao answerDao;
+    @Autowired(required = false)
+    private UserDao userDao;
     @RequestMapping(value = "/submitquestion")
     public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content,@RequestParam("state") int state)throws ParseException {
         Date date = new Date(System.currentTimeMillis());
@@ -65,14 +67,15 @@ public class QuestionController {
         return questionDao.getAllQuestions(userid);
 
     }
-    @RequestMapping(value = "getquestiondetail")
-        public JSONObject getQuestionDetail(@RequestParam("qid") int qid){
+    @RequestMapping(value = "/getquestiondetail")
+        public JSONObject getQuestionDetail(@RequestParam("qid") int questionId){
         JSONObject jsonObject = new JSONObject();
-        Question question = questionDao.getQuestionById(qid);
-        List<Answer> answers = answerDao.queryAnswerByQuestionId(qid);
+        Question question = questionDao.getQuestionById(questionId);
+        System.out.println(question.getQid());
+        List<Answer> answerList = answerDao.queryAnswerByQuestionId(questionId);
         jsonObject.put("qid",question.getQid());
         jsonObject.put("state",question.getState());
-        jsonObject.put("answerList",answers);
+        jsonObject.put("answerList",answerList);
         return  jsonObject;
     }
     @RequestMapping(value = "/getmyfocus")
