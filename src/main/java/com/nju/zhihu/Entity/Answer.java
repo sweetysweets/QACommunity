@@ -1,5 +1,7 @@
 package com.nju.zhihu.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Answer{
@@ -58,7 +60,7 @@ public class Answer{
     public void setState(int state) {
         this.state = state;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
     public Date getTime() {
         return time;
     }

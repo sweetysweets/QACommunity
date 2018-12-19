@@ -19,11 +19,13 @@ public class LoginController {
 
     @RequestMapping("/addUser")
     public void addUser(@RequestParam("id")String id,@RequestParam("avater")String avater,@RequestParam("name")String name){
-        User user =new User();
-        user.setAvater(avater);
-        user.setToken(id);
-        user.setName(name);
-        userDao.addUser(user);
+        if(userDao.getUserByToken(id)==null) {
+            User user = new User();
+            user.setAvater(avater);
+            user.setToken(id);
+            user.setName(name);
+            userDao.addUser(user);
+        }
     }
 
 
@@ -32,6 +34,8 @@ public class LoginController {
         User user = userDao.getUserByToken(id);
         return user;
     }
+
+
 
 
 
