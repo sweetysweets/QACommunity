@@ -12,6 +12,7 @@
                 column: 查询结果中的列名字，如果没有起别名，那么就是表中的字段名
                 property: java类中的属性名称
         -->
+        <id column="comment_id" property="comment_id"/>
         <result column="user_id" property="user_id"/>
         <result column="answer_id" property="answer_id"/>
         <result column="reply_id" property="reply_id"/>
@@ -31,10 +32,17 @@
     <select id="getCommentListByAnswerId" resultMap="userComment">
         SELECT comment.*,user.*
         FROM comment,user
-        WHERE answer_id = #{answer_id} AND user.user_id = comment.user_id
+        WHERE answer_id = #{answer_id} AND user.user_id = comment.user_id AND reply_id = -1
         ORDER BY comment.time DESC;
     </select>
 
+
+    <select id="getReplyListByCommentId" resultMap="userComment">
+        SELECT comment.*,user.*
+        FROM comment,user
+        WHERE reply_id = #{comment_id} and user.user_id = comment.user_id
+        ORDER BY comment.time DESC;
+    </select>
     <!--<update id="updateUser">-->
         <!--UPDATE user-->
         <!--SET NAME = #{user.name},-->

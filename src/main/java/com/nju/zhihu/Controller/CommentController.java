@@ -40,6 +40,11 @@ public class CommentController {
         return commentDao.getCommentListByAnswerId(answer_id);
     }
 
+    @RequestMapping("/getReplyList")
+    public List<Comment> getReplyList(@RequestParam("comment_id")int comment_id){
+        return commentDao.getReplyListByCommentId(comment_id);
+    }
+
 
     @RequestMapping("/deleteComment")
     public void deleteComment(@RequestParam("id")int id){
