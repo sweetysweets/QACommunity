@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,11 +20,10 @@ public class QuestionController {
     QuestionDao questionDao;
     UserDao userDao;
     @RequestMapping(value = "/submitquestion")
-    public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("time")String time,@RequestParam("state") int state)throws ParseException {
-        System.out.println("time"+time);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = sdf.parse(time);
+    public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content,@RequestParam("state") int state)throws ParseException {
+        Date date = new Date(System.currentTimeMillis());
         Timestamp timestamp = new Timestamp(date.getTime());
+        System.out.println("time:"+timestamp);
         Question question= new Question();
         question.setUid(userid);
         question.setTitle(title);
@@ -36,7 +34,12 @@ public class QuestionController {
         return 0;
 
     }
+    @RequestMapping(value = "/getallquestion")
+    public List<Question> getAllQuestion(){
+        List<Question>questions = questionDao.getAllQuestion();
+        return questionDao.getAllQuestion();
 
+    }
     @RequestMapping(value = "/getmyfocus")
     public List<Question> getMyFocus(@RequestParam("userid") int userid){
         return questionDao.getMyFocus(userid);

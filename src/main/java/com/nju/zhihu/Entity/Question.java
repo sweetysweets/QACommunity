@@ -1,6 +1,10 @@
 package com.nju.zhihu.Entity;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Question {
     private int qid;
@@ -54,7 +58,7 @@ public class Question {
     public void setTime(Timestamp time) {
         this.time = time;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public Timestamp getTime() {
         return time;
     }

@@ -27,11 +27,11 @@ public class LoginController {
     }
 
 
-    @RequestMapping("/getUserInfo")
-    public User getUserInfo(@RequestParam("id")String id){
-        User user = userDao.getUserById(id);
-        return user;
-    }
+//    @RequestMapping("/getUserInfo")
+//    public User getUserInfo(@RequestParam("id")String id){
+//        User user = userDao.getUserById(id);
+//        return user;
+//    }
 
 
 
