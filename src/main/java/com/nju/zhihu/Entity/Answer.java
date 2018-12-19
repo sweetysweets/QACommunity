@@ -1,44 +1,30 @@
 package com.nju.zhihu.Entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
-public class Answer {
-    private int answerid ;
-    private int uid;
-    private String content;
-    private int support;
-    private int against;
-    private int state ;
-    private Timestamp time;
+public class Answer{
+    int answer_id;
+    int user_id;
+    String content;
+    int support;
+    int against;
+    int state;
+    Date time;
 
-    //无参构造函数
-    public Answer(){
-
-    }
-    public Answer(int answerid, int uid, String content, int support, int against, int state, Timestamp time) {
-        this.answerid = answerid;
-        this.uid = uid;
-        this.content = content;
-        this.support = support;
-        this.against = against;
-        this.state = state;
-        this.time = time;
+    public int getAnswer_id() {
+        return answer_id;
     }
 
-    public int getAnswerid() {
-        return answerid;
+    public void setAnswer_id(int answer_id) {
+        this.answer_id = answer_id;
     }
 
-    public void setAnswerid(int answerid) {
-        this.answerid = answerid;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getContent() {
@@ -73,11 +59,15 @@ public class Answer {
         this.state = state;
     }
 
-    public Timestamp getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(Date time) {
         this.time = time;
     }
+
+
+
+
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nju.zhihu.Dao.AnswerDao">
+    <select id="queryAnswerByAnswerId" resultType="com.nju.zhihu.Entity.Answer">
+        select * from answer where answer_id = #{answerId}
+    </select>
+    <select id="getAnswers" resultType="com.nju.zhihu.Entity.Answer">
+        select * from answer
+    </select>
+    <select id="queryAnswerByQuestionId" resultType="com.nju.zhihu.Entity.Answer">
+        select
+          a.answer_id,
+          a.user_id,
+          a.content,
+          a.support,
+          a.against,
+          a.state,
+          a.time
+        from
+          answer a,
+          question q,
+          updating up
+        where
+          up.answer_id = a.answer_id
+        and
+          up.question_id = q.question_id
+        and
+          q.question_id = #{questionId}
+    </select>
+    <insert id="addAnswer" >
+        insert into answer(answer_id,user_id,content,support,against,state,time )
+        values (
+        #{answer.answer_id},
+        #{answer.user_id},
+        #{answer.content},
+        #{answer.support},
+        #{answer.against},
+        #{answer.state},
+        #{answer.time,jdbcType = TIMESTAMP}
+        )
+    </insert>
+
+</mapper>

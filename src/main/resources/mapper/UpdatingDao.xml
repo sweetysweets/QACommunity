@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nju.zhihu.Dao.UpdatingDao">
+
+    <resultMap id="userRelatedAnswer" type="com.nju.zhihu.Entity.Updating">
+        <!-- 配置id的对应 -->
+        <id column="id" property="updatingid"/>
+        <!--<id column="qid" property="updatingid"/>-->
+        <!--<id column="answerid" property="updatingid"/>-->
+
+        <result column="updating_id" property="updatingid"/>
+
+        <association property="user" javaType="com.nju.zhihu.Entity.User">
+            <result column="uid" property="id"/>
+            <result column="avater" property="avater"/>
+            <result column="user_name" property="name"/>
+        </association>
+
+        <association property="question" javaType="com.nju.zhihu.Entity.Question">
+            <result column="qid" property="qid"/>
+            <result column="title" property="title"/>
+            <result column="question_content" property="content"/>
+            <result column="question_time" property="time"/>
+        </association>
+
+        <association property="answer" javaType="com.nju.zhihu.Entity.Answer">
+            <result column="answer_content" property="content"/>
+            <result column="answer_support" property="support"/>
+            <result column="answer_against" property="against"/>
+            <result column="answer_time" property="time"/>
+        </association>
+    </resultMap>
+
+
+    <select id="getMyRelatedAnswer" resultMap="userRelatedAnswer">
+SELECT
+	up.updating_id AS updating_id,
+	u.user_id AS uid,
+	u.avater AS avater,
+	u.nickname AS user_name,
+	q.question_id AS qid,
+	q.title AS title,
+	q.time AS question_time,
+	q.content AS question_content,
+	a.content AS answer_content,
+	a.support AS answer_support,
+	a. AGAINST AS answer_against,
+	a.time AS answer_time
+FROM
+	answer a,
+	question q,
+	updating up,
+	USER u
+WHERE
+	up.type = 2
+AND up.answer_id = a.answer_id
+AND up.user_id = u.user_id
+AND up.question_id = q.question_id
+AND up.question_id IN (
+	SELECT
+		question_id
+	FROM
+		question
+	WHERE
+		user_id = #{userid}
+)
+    </select>
+
+    <select id="getMyFocusUserAnswer" resultMap="userRelatedAnswer">
+        SELECT
+	up.updating_id AS updating_id,
+	u.user_id AS uid,
+	u.avater AS avater,
+	u.nickname AS user_name,
+	q.question_id AS qid,
+	q.title AS title,
+	q.time AS question_time,
+	q.content AS question_content,
+	a.content AS answer_content,
+	a.support AS answer_support,
+	a. AGAINST AS answer_against,
+	a.time AS answer_time
+FROM
+	answer a,
+	question q,
+	updating up,
+	USER u
+WHERE
+	up.type = 2
+AND up.answer_id = a.answer_id
+AND up.user_id = u.user_id
+AND up.question_id = q.question_id
+AND up.user_id IN (
+	SELECT
+		fu.user_followed_id
+	FROM
+		follow_user fu
+	WHERE
+		fu.user_id = #{userid}
+)
+
+    </select>
+
+</mapper>

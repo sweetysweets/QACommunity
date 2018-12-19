@@ -48,6 +48,7 @@
                         column: 查询结果中的列名字，如果没有起别名，那么就是表中的字段名
                         property: java类中的属性名称
         -->
+        <result column="uid" property="uid"/>
         <result column="qid" property="qid"/>
         <result column="title" property="title"/>
         <result column="content" property="content"/>
@@ -62,7 +63,7 @@
     </resultMap>
 
 
-    <select id="getMyFocus" resultMap="userFocus">
+    <select id="getMyFocusUserQuestion" resultMap="userFocus">
         SELECT
         b.question_id as qid,
         b.user_id as uid,
@@ -80,6 +81,69 @@
 								WHERE f.user_id = #{userid} and f.user_followed_id = u.user_id
 													)
         ORDER BY b.time DESC;
+    </select>
+
+
+    <select id="getMyFocusQuestion" resultMap="userFocus">
+        SELECT
+            b.question_id AS qid,
+            b.user_id AS uid,
+            b.title AS title,
+            b.content AS content,
+            b.time AS time,
+            b.state AS state,
+            a.avater AS user_avater,
+            a.nickname AS user_name
+        FROM
+            USER a,
+            question b
+        WHERE
+            a.user_id = b.user_id
+        AND b.question_id IN (
+            SELECT
+                f.question_followed_id AS id
+            FROM
+                follow_quesion f
+            WHERE
+                f.user_id = #{userid}
+        )
+        ORDER BY
+            time DESC;
+    </select>
+
+    <resultMap type="com.nju.zhihu.Entity.Question" id="allQuestions">
+        <!-- 配置id的对应 -->
+        <id column="id" property="qid"/>
+
+        <result column="qid" property="qid"/>
+        <result column="uid" property="uid"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="time" property="time"/>
+        <result column="state" property="state" />
+
+        <association property="user" javaType="com.nju.zhihu.Entity.User">
+            <result column="uid" property="id"/>
+            <result column="user_name" property="name"/>
+            <result column="user_avater" property="avater"/>
+        </association>
+    </resultMap>
+    <select id="getAllQuestions" resultMap="allQuestions">
+      SELECT
+	    q.question_id AS qid,
+	    q.user_id AS uid,
+	    q.title AS title,
+	    q.content AS content,
+	    q.time AS time,
+	    q.state AS state,
+	    u.nickname AS user_name,
+	    u.avater AS user_avater
+      FROM
+	    question q,
+	    USER u
+      WHERE
+	    q.user_id = u.user_id
+	  ORDER BY time DESC;
     </select>
 
 </mapper>
