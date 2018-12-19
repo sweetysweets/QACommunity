@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nju.zhihu.Dao.ProblemDao">
+
+    <select id="getProblemByUserid" resultType="Problem">
+        SELECT
+        a.user_id as uid,
+        b.question_id as qid,
+        token as token,
+        avater as avater,
+        time as createTime,
+        title as title,
+        content as content
+        FROM user as a,question as b,follow_quesion as c
+        WHERE c.user_id = #{id} and a.user_id = b.user_id and b.question_id = c.question_followed_id
+    </select>
+</mapper>

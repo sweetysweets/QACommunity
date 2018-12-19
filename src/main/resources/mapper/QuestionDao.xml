@@ -14,6 +14,21 @@
         #{question.state}
         )
     </insert>
+    <select id="getAllQuestion" resultType="Question">
+        SELECT
+        question_id as qid,
+        user_id as uid,
+        title as title,
+        content as content,
+        time as time,
+        state as state
+        FROM question
+        Where state !=2
+    </select>
+    <update id="deleteQuestion">
+        SET state=2
+        where question_id=#{id}
+    </update>
 
     <resultMap type="com.nju.zhihu.Entity.Question" id="userFocus">
         <!-- 配置id的对应 -->
@@ -56,6 +71,7 @@
 													)
         ORDER BY b.time DESC;
     </select>
+
 
     <select id="getMyFocusQuestion" resultMap="userFocus">
         SELECT
