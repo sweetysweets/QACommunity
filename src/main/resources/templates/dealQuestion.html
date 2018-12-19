@@ -44,7 +44,7 @@
                 <div class="ibox float-e-margins">
                     <div class="row" style="margin-top:10px">
                         <div class="col-sm-1">
-                            <img th:src="@{img/dealIcon.png}" style="width:50px;height:50px"/>
+                            <img th:src="@{img/dealIcon.png}" style="width:40px;height:40px"/>
                             </div>
 
                         <blockquote>
@@ -151,12 +151,30 @@
     function showDialog(node){
         $('#changeInfo').modal('show');
         var tr = node.parentNode.parentNode;
-        var qid = tr.cells[0].innerText;
+        var qid = parseInt(tr.cells[0].innerText);
         $.ajax({
             type:"POST",
+            data:{"qid":qid},
             url:"/getquestiondetail",
             success:function(data){
-                alert(data.qid);
+                var str='';
+                str='<div class="row form-group"><label class="col-sm-3 control-label">问题编号 *</label>'+
+				'<div class="col-sm-8">'+
+				' <input id="quesId"  type="text"  class="form-control required" value="'+
+				qid+
+				'"disable="disable"/>'+
+				'</div></div>'+
+				'<div class="row form-group"><label class="col-sm-3 control-label">问题状态 *</label>'+
+				'<div class="col-sm-8">'+
+				' <input id="quesState"  type="text"  class="form-control required" value="'+
+				data.state+
+				'"/>'+
+				'</div></div>'
+                var astr = '';
+
+
+
+				$('#questionDetail').append(str);
             }
         });
     }
