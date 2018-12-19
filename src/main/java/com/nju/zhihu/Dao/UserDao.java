@@ -16,4 +16,6 @@ public interface UserDao {
     List<User> getFollowUserById(@Param("id") String token);
     //查询关注的用户的用户信息
     List<User> getUserById(@Param("id") String token);
+
+    User getUserByToken(@Param("id") String token);
 }
