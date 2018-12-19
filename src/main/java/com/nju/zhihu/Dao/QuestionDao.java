@@ -12,5 +12,5 @@ public interface QuestionDao {
     void addQuestion(@Param("question")Question question);
     List <Question> getMyFocus(@Param("userid") int userid);
     List<Question> getAllQuestion();
-
+    Question getQuestionById(@Param("qid") int qid);
 }

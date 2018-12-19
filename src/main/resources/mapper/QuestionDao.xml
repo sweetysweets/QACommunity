@@ -29,6 +29,17 @@
         SET state=2
         where question_id=#{id}
     </update>
+    <select id="getQuestionById" resultType="Question">
+        SELECT
+        question_id as qid,
+        user_id as uid,
+        title as title,
+        content as content,
+        time as time,
+        state as state
+        FROM question
+        Where question_id=#{qid}
+    </select>
 
     <resultMap type="com.nju.zhihu.Entity.Question" id="userFocus">
         <!-- 配置id的对应 -->

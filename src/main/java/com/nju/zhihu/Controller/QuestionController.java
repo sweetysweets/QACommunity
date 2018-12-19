@@ -1,8 +1,12 @@
 package com.nju.zhihu.Controller;
 
+import com.nju.zhihu.Dao.AnswerDao;
 import com.nju.zhihu.Dao.QuestionDao;
 import com.nju.zhihu.Dao.UserDao;
+import com.nju.zhihu.Entity.Answer;
 import com.nju.zhihu.Entity.Question;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +18,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+
 @RestController
 public class QuestionController {
     @Autowired(required = false)
     QuestionDao questionDao;
+    AnswerDao answerDao;
     UserDao userDao;
     @RequestMapping(value = "/submitquestion")
     public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content,@RequestParam("state") int state)throws ParseException {
@@ -39,6 +45,16 @@ public class QuestionController {
         List<Question>questions = questionDao.getAllQuestion();
         return questionDao.getAllQuestion();
 
+    }
+    @RequestMapping(value = "getquestiondetail")
+        public JSONObject getQuestionDetail(@RequestParam("qid") int qid){
+        JSONObject jsonObject = new JSONObject();
+        Question question = questionDao.getQuestionById(qid);
+        List<Answer> answers = answerDao.queryAnswerByQuestionId(qid);
+        jsonObject.put("qid",question.getQid());
+        jsonObject.put("state",question.getState());
+        jsonObject.put("answerList",answers);
+        return  jsonObject;
     }
     @RequestMapping(value = "/getmyfocus")
     public List<Question> getMyFocus(@RequestParam("userid") int userid){
