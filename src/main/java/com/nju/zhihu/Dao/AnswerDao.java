@@ -13,4 +13,5 @@ public interface AnswerDao {
     List<Answer> queryAnswerByQuestionId(int questionId);
     Answer queryAnswerByAnswerId(int answerId);
     List<Answer> getAnswers();
+    void deleteAnswer(@Param("aid") int aid);
 }

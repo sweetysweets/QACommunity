@@ -26,6 +26,7 @@
         Where state !=2
     </select>
     <update id="deleteQuestion">
+        UPDATE question
         SET state=2
         where question_id=#{id}
     </update>

@@ -42,6 +42,10 @@ public class AnswerController {
         List<Answer> answerList = answerDao.getAnswers();
         return answerList;
     }
+    @RequestMapping(value = "/deleteanswer")
+    public void deleteAnswer(@RequestParam("aid") int aid){
+        answerDao.deleteAnswer(aid);
+    }
 
 
 }

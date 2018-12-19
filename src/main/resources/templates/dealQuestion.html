@@ -171,7 +171,7 @@
 				'<div class="col-sm-8">'+
 				' <input id="quesId"  type="text"  class="form-control required" value="'+
 				qid+
-				'"disable="disable"/>'+
+				'"disabled="disabled"/>'+
 				'</div></div>'+
 				'<div class="row form-group"><label class="col-sm-3 control-label">问题状态 *</label>'+
 				'<div class="col-sm-8">'+
@@ -192,6 +192,18 @@
 		            '</td></tr>'
 		            $('#tabAnswer').append(astr);
                 }
+            }
+        });
+    }
+    function delAnswer(node){
+        var tr = node.parentNode.parentNode;
+        var aid = parseInt(tr.cells[0].innerText);
+        $.ajax({
+            type:"POST",
+            data:{"aid":aid},
+            url:"/answer/deleteanswer",
+            success:function(){
+                alert('已成功删除')
             }
         });
     }
