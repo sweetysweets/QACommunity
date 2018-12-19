@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nju.zhihu.Dao.AnswerDao">
+    <update id="deleteAnswer">
+        UPDATE answer
+        SET state=2
+        where answer_id=#{aid}
+    </update>
     <select id="queryAnswerByAnswerId" resultType="com.nju.zhihu.Entity.Answer">
         select * from answer where answer_id = #{answerId}
     </select>
@@ -26,7 +31,7 @@
         and
           up.question_id = #{questionId}
         and
-          up.type=1
+          a.state !=2
     </select>
     <insert id="addAnswer" >
         insert into answer(answer_id,user_id,content,support,against,state,time )
