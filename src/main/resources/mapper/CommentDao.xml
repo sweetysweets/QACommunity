@@ -43,6 +43,15 @@
         WHERE reply_id = #{comment_id} and user.user_id = comment.user_id
         ORDER BY comment.time DESC;
     </select>
+
+
+    <select id="getCommentCount" resultType="int">
+
+        SELECT count(*)
+        FROM comment
+        WHERE answer_id = #{answer_id};
+
+    </select>
     <!--<update id="updateUser">-->
         <!--UPDATE user-->
         <!--SET NAME = #{user.name},-->
