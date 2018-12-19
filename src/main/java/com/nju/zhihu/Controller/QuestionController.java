@@ -26,6 +26,7 @@ public class QuestionController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = sdf.parse(time);
         Timestamp timestamp = new Timestamp(date.getTime());
+//        Date timedate = new Date();
         Question question= new Question();
         question.setUid(userid);
         question.setTitle(title);
@@ -37,8 +38,19 @@ public class QuestionController {
 
     }
 
-    @RequestMapping(value = "/getmyfocus")
-    public List<Question> getMyFocus(@RequestParam("userid") int userid){
-        return questionDao.getMyFocus(userid);
+    @RequestMapping(value = "/getmyfocususerquestion")
+    public List<Question> getMyFocusUserQuestion(@RequestParam("userid") int userid){
+        return questionDao.getMyFocusUserQuestion(userid);
+    }
+
+    @RequestMapping(value = "/getmyfocusquestion")
+    public List<Question> getMyFocusQuestion(@RequestParam("userid") int userid){
+        return questionDao.getMyFocusQuestion(userid);
+    }
+
+
+    @RequestMapping(value = "/getallquestions")
+    public List<Question> getAllQuestions(@RequestParam("userid") int userid){
+        return questionDao.getAllQuestions(userid);
     }
 }

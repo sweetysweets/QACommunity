@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 public interface QuestionDao {
     void deleteQuestionById(@Param("id") int id);
     void addQuestion(@Param("question")Question question);
-    List <Question> getMyFocus(@Param("userid") int userid);
-
+    List <Question> getMyFocusUserQuestion (@Param("userid") int userid);
+    List <Question> getMyFocusQuestion(@Param("userid") int userid);
+    List <Question> getAllQuestions (@Param("userid") int userid);
 }
