@@ -58,7 +58,7 @@ public class Problem {
         this.content = content;
     }
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm",timezone = "GMT+8")
     public java.util.Date getCreateTime() {
         return createTime;
     }

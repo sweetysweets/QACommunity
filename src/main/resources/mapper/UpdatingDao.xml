@@ -11,7 +11,7 @@
         <!--<id column="answerid" property="updatingid"/>-->
 
         <result column="updating_id" property="updatingid"/>
-
+        <result column="aid" property="aid"/>
         <association property="user" javaType="com.nju.zhihu.Entity.User">
             <result column="uid" property="id"/>
             <result column="avater" property="avater"/>
@@ -26,6 +26,7 @@
         </association>
 
         <association property="answer" javaType="com.nju.zhihu.Entity.Answer">
+            <result column="aid" property="answer_id"/>
             <result column="answer_content" property="content"/>
             <result column="answer_support" property="support"/>
             <result column="answer_against" property="against"/>
@@ -47,7 +48,8 @@ SELECT
 	a.content AS answer_content,
 	a.support AS answer_support,
 	a. AGAINST AS answer_against,
-	a.time AS answer_time
+	a.time AS answer_time,
+	a.answer_id as aid
 FROM
 	answer a,
 	question q,
@@ -70,6 +72,7 @@ AND up.question_id IN (
 
     <select id="getMyFocusUserAnswer" resultMap="userRelatedAnswer">
         SELECT
+
 	up.updating_id AS updating_id,
 	u.user_id AS uid,
 	u.avater AS avater,
@@ -81,7 +84,8 @@ AND up.question_id IN (
 	a.content AS answer_content,
 	a.support AS answer_support,
 	a. AGAINST AS answer_against,
-	a.time AS answer_time
+	a.time AS answer_time,
+	a.answer_id as aid
 FROM
 	answer a,
 	question q,
