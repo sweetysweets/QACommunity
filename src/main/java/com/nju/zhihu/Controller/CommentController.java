@@ -46,6 +46,12 @@ public class CommentController {
     }
 
 
+    @RequestMapping("/getCommentCount")
+    public int getCommentCount(@RequestParam("answer_id")int answer_id){
+        return commentDao.getCommentCount(answer_id);
+    }
+
+
     @RequestMapping("/deleteComment")
     public void deleteComment(@RequestParam("id")int id){
         commentDao.deleteCommentById(id);

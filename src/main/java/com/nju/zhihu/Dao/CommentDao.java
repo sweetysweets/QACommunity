@@ -17,5 +17,5 @@ public interface CommentDao {
 
 
     List<Comment> getReplyListByCommentId(@Param("comment_id")int comment_id);
-
+    int getCommentCount(@Param("answer_id")int answer_id);
 }
