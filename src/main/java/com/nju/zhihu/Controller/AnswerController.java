@@ -20,7 +20,9 @@ import java.util.List;
 public class AnswerController {
     @Autowired(required = false)
     private AnswerDao answerDao;
-    private UpdatingDao updatingDao;
+    public UpdatingDao updatingDao2;
+
+
     @ResponseBody
     @RequestMapping(value = "/addAnswer",method = RequestMethod.POST)
     public void addAnswer(@RequestBody String params ){
@@ -44,8 +46,17 @@ public class AnswerController {
         System.out.println(answer1.getUser_id());
         System.out.println(answer1.getQuestion_id());
         System.out.println(answer1.getAnswer_id());
-        answer1.setQuestion_id(answer.getQuestion_id());
-        updatingDao.addAnswerToUpdating(answer1);
+//        answer1.setQuestion_id(answer.getQuestion_id());
+//        answer1.setAnswer_id(answer.getAnswer_id());
+//        Updating updating =
+        Updating updating = new Updating();
+        updating.setType(2);
+        updating.setUid(answer1.getUser_id());
+        updating.setQid(answer1.getQuestion_id());
+        updating.setState(0);
+        updating.setAid(answer1.getAnswer_id());
+
+        updatingDao2.addAnswerToUpdating(updating);
 //        System.out.println("fafaffffffffffffffffffffffff");
     }
     @ResponseBody
@@ -70,7 +81,7 @@ public class AnswerController {
     }
 
 
-    public void setUpdatingDao(UpdatingDao updatingDao) {
-        this.updatingDao = updatingDao;
-    }
+//    public void setUpdatingDao(UpdatingDao updatingDao) {
+//        this.updatingDao = updatingDao;
+//    }
 }
