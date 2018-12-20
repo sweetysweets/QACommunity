@@ -4,6 +4,7 @@ import com.nju.zhihu.Dao.AnswerDao;
 import com.nju.zhihu.Dao.QuestionDao;
 import com.nju.zhihu.Dao.UserDao;
 import com.nju.zhihu.Entity.Answer;
+import com.nju.zhihu.Entity.FollowQuestion;
 import com.nju.zhihu.Entity.Question;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -81,5 +82,29 @@ public class QuestionController {
     @RequestMapping(value = "/getmyfocus")
     public List<Question> getMyFocus(@RequestParam("userid") int userid){
         return questionDao.getMyFocus(userid);
+    }
+
+    //查看我关注的问题列表，方便前端判断关注状态显示，这个功能其实可以用我之前写的getMyFocusQuestion，这里直接调用一些
+    @RequestMapping(value = "/getallmyfollowquestions")
+    public List<Question> getAllMyFollowQuestions(@RequestParam("userid") int userid){
+        return questionDao.getMyFocusQuestion(userid);
+    }
+
+    //关注该问题，插入数据
+    @RequestMapping(value = "/followquestion")
+    public int followQuestion(@RequestParam("userid") int userid , @RequestParam("questionid")int questionid){
+        questionDao.insertFollowQuestion(userid,questionid);
+        return 0;
+    }
+
+    //取消关注该问题，删除数据
+    @RequestMapping(value = "/cancelfollowquestion")
+    public int cancelFollowQuestion(@RequestParam("userid") int userid , @RequestParam("questionid") int questionid){
+        FollowQuestion fq = questionDao.getFollowQuestionId(userid,questionid);
+        System.out.println(fq.getFqid());
+
+        questionDao.cancelFollowQuestion(fq.getFqid());
+
+        return 0;
     }
 }

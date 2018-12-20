@@ -147,4 +147,30 @@
 	  ORDER BY time DESC;
     </select>
 
+    <!--插入关注记录-->
+    <insert id="insertFollowQuestion">
+        INSERT INTO
+        follow_quesion(user_id,question_followed_id)
+        VALUES(
+        #{userid},
+        #{questionfollowedid}
+        )
+    </insert>
+
+
+    <!--根据userid和questionid查看 followquestionid-->
+    <select id="getFollowQuestionId" resultType="FollowQuestion">
+        SELECT
+        follow_quesion_id as fqid,
+        user_id as userid,
+        question_followed_id as questionfollowedid
+        FROM follow_quesion
+        Where user_id=#{userid} AND question_followed_id=#{questionid}
+    </select>
+
+    <!--取消关注问题，删除记录-->
+    <delete id="cancelFollowQuestion">
+    DELETE FROM follow_quesion
+    WHERE follow_quesion_id = #{followquestionid}
+    </delete>
 </mapper>
