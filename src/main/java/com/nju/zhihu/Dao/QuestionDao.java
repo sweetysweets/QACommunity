@@ -21,4 +21,5 @@ public interface QuestionDao {
     List <Question> getMyFocus(@Param("userid") int userid);
     List<Question> getAllQuestion();
     Question getQuestionById(@Param("qid") int qid);
+    void updateQuestion(@Param("qid") int qid,@Param("qstate") int qstate);
 }

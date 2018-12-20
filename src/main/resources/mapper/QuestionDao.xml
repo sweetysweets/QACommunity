@@ -25,10 +25,15 @@
         FROM question
         Where state !=2
     </select>
-    <update id="deleteQuestion">
+    <update id="deleteQuestionById">
         UPDATE question
         SET state=2
         where question_id=#{id}
+    </update>
+    <update id="updateQuestion">
+        UPDATE question
+        SET state=#{qstate}
+        where question_id = #{qid}
     </update>
     <select id="getQuestionById" resultType="Question">
         SELECT

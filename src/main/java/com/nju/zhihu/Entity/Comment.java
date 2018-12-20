@@ -1,5 +1,7 @@
 package com.nju.zhihu.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Comment {
@@ -44,7 +46,7 @@ public class Comment {
         this.reply_id = reply_id;
     }
 
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
     public Date getTime() {
         return time;
     }

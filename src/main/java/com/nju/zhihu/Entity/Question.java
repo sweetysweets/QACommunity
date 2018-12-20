@@ -11,7 +11,8 @@ public class Question {
     private int uid;
     private String title;
     private String content;
-    private Timestamp time;
+//    private Timestamp time;之前这个会把后面的信息都显示出来
+    private Date time;
     private int state;
     private User user;
 //    private
@@ -55,12 +56,14 @@ public class Question {
 
     public String getContent(){return content; }
 
-
-    public void setTime(Timestamp time) {
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
+    public void setTime(Date time) {
         this.time = time;
     }
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    public Timestamp getTime() {
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm" ,timezone = "GMT+8")
+    public Date getTime() {
         return time;
     }
 
