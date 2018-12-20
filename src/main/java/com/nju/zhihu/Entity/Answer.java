@@ -14,6 +14,8 @@ public class Answer{
 
     Date time;
 
+    int question_id;
+
     public int getAnswer_id() {
         return answer_id;
     }
@@ -70,7 +72,11 @@ public class Answer{
         this.time = time;
     }
 
+    public int getQuestion_id() {
+        return question_id;
+    }
 
-
-
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
+    }
 }

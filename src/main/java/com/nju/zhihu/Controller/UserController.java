@@ -1,6 +1,7 @@
 package com.nju.zhihu.Controller;
 
 import com.nju.zhihu.Dao.UserDao;
+import com.nju.zhihu.Entity.FollowUser;
 import com.nju.zhihu.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,11 +30,38 @@ public class UserController {
         userMap.put("userInfo",user);
         return userMap;
     }
-    @ResponseBody
-    @RequestMapping(value = "/getuserbyid",method = RequestMethod.GET)
-    public User getUserByIda(@RequestParam("user_id") int user_id){
-        User user = userDao.getUserByIda(user_id);
-        System.out.println(user.getId());
-        return user;
+
+
+    //此方法与上面的/focus_users方法功能一致，不过我用的是List<User>，也是查询所有关注的用户列表
+    //@Author: wsx
+    @RequestMapping(value ="/getallmyfollowusers")
+    public List<User> getAllmyFollowUsers(@RequestParam("userid") int userid){
+        String userid_str = String.valueOf(userid);
+        return userDao.getFollowUserById(userid_str);
     }
+
+    //请求插入关注用户数据
+    @RequestMapping(value = "/insertmyfollowuser")
+    public int insertMyFollowUser(@RequestParam("userid") int userid , @RequestParam("userfollowedid") int userfollowedid){
+        userDao.insertMyFollowUser(userid,userfollowedid);
+        return 0;
+    }
+
+    //取消关注该用户（答主），删除数据
+    @RequestMapping(value = "/cancelmyfollowuser")
+    public int cancelMyFollowUser(@RequestParam("userid") int userid , @RequestParam("userfollowedid") int userfollowedid) {
+        FollowUser fu = userDao.getFollowUserId(userid, userfollowedid);
+        System.out.println(fu.getFuid());
+
+        userDao.cancelFollowUser(fu.getFuid());
+        return 0;
+    }
+
+//    @ResponseBody
+//    @RequestMapping(value = "/getuserbyid",method = RequestMethod.GET)
+//    public User getUserByIda(@RequestParam("user_id") int user_id){
+//        User user = userDao.getUserByIda(user_id);
+//        System.out.println(user.getId());
+//        return user;
+//    }
 }

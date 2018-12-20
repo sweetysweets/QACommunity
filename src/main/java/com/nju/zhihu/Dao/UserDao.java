@@ -1,8 +1,10 @@
 package com.nju.zhihu.Dao;
 
+import com.nju.zhihu.Entity.FollowUser;
 import com.nju.zhihu.Entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,5 +20,20 @@ public interface UserDao {
     List<User> getUserById(@Param("id") String token);
 
     User getUserByToken(@Param("id") String token);
-    User getUserByIda(@Param("id") int id);
+
+
+//    List<User> getAllmyFollowUsers(@Param("id") );
+
+    //插入关注用户记录
+    void insertMyFollowUser(@Param("userid") int userid , @Param("userfollowedid") int userfollowedid);
+
+    //查询关注用户记录的 follow_id
+    FollowUser getFollowUserId(@Param("userid") int userid , @Param("userfollowedid") int userfollowedid);
+
+    //取消关注用户
+    void cancelFollowUser(@Param("followuserid") int followuserid);
+
+
+//    User getUserByIda(@Param("id") int id); 没用
+
 }

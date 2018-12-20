@@ -107,4 +107,16 @@ AND up.user_id IN (
 
     </select>
 
+
+	<!--Updating表插入-->
+	<insert id="addAnswerToUpdating" >
+        INSERT INTO updating(type,user_id,question_id,state,answer_id)
+        values (
+            2,
+            #{answer1.user_id},
+            #{anwser1.question_id},
+            0,
+            #{answer1.answer_id}
+        )
+    </insert>
 </mapper>

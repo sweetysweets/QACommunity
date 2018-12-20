@@ -25,6 +25,7 @@
         WHERE token = #{id}
     </select>
 
+    <!--这个方法之前不知道谁写的，可能是我之前写的，穿的参数是String类型的userid-->
     <select id="getFollowUserById" resultType="User">
         SELECT
         b.user_id as id,
@@ -56,4 +57,30 @@
         <!--DELETE user WHERE ID = #{id}-->
     <!--</delete>-->
 
+    <insert id="insertMyFollowUser" >
+        INSERT INTO
+        follow_user(user_id,user_followed_id)
+        VALUES(
+        #{userid},
+        #{userfollowedid}
+        )
+    </insert>
+
+    <!--根据userid和 userfollowedid查询FollowUser对象-->
+    <select id="getFollowUserId" resultType="com.nju.zhihu.Entity.FollowUser">
+        SELECT
+        follow_id as fuid,
+        user_id as uid,
+        user_followed_id as userfollowedid
+        FROM follow_user
+        WHERE user_id=#{userid} AND user_followed_id=#{userfollowedid}
+
+    </select>
+
+    <!--取消关注用户，删除记录-->
+    <delete id="cancelFollowUser">
+        DELETE FROM follow_user
+        WHERE follow_id = #{followuserid}
+
+    </delete>
 </mapper>
