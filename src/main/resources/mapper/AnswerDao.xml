@@ -46,6 +46,20 @@
         )
 
     </insert>
+    <update id="updateAgainst" parameterType="int">
+        update  answer
+        set against = #{param1}
+        where
+        answer.answer_id=#{param2}
+    </update>
+    <update id="updateSupport" parameterType="int">
+        update answer
+        set answer.support=#{param1}
+        where answer.answer_id=#{param2}
+    </update>
+
+
+
 
 
 </mapper>

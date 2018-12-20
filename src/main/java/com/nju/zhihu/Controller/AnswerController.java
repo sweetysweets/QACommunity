@@ -42,6 +42,18 @@ public class AnswerController {
         List<Answer> answerList = answerDao.getAnswers();
         return answerList;
     }
+    @RequestMapping(value = "/updateSupport",method = RequestMethod.GET)
+    public void updateSupport(@RequestParam("support") int support,@RequestParam("answer_id") int answer_id){
+        answerDao.updateSupport(support,answer_id);
+    }
+
+    @RequestMapping(value = "/updateAgainst",method = RequestMethod.GET)
+    public void updateAgainst(@RequestParam("against") int against,@RequestParam("answer_id") int answer_id){
+        System.out.println(answer_id);
+        System.out.println(against);
+        answerDao.updateAgainst(against,answer_id);
+    }
+
     @RequestMapping(value = "/deleteanswer")
     public void deleteAnswer(@RequestParam("aid") int aid){
         answerDao.deleteAnswer(aid);
