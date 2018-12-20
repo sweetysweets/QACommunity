@@ -3,9 +3,7 @@ package com.nju.zhihu.Controller;
 import com.nju.zhihu.Dao.UserDao;
 import com.nju.zhihu.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,5 +28,12 @@ public class UserController {
         List<User> user = userDao.getUserById(userid);
         userMap.put("userInfo",user);
         return userMap;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/getuserbyid",method = RequestMethod.GET)
+    public User getUserByIda(@RequestParam("user_id") int user_id){
+        User user = userDao.getUserByIda(user_id);
+        System.out.println(user.getId());
+        return user;
     }
 }

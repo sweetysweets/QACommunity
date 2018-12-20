@@ -14,6 +14,7 @@ public interface UpdatingDao {
     Admin getUserById(@Param("id") int id);
     List<Updating> getMyRelatedAnswer (@Param("userid") int userid);
     List<Updating> getMyFocusUserAnswer (@Param("userid") int userid);
+
 //    int updateUser(@Param("user") Admin user);
 //
 //    int insertUser(@Param("user") Admin user);

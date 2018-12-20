@@ -9,6 +9,7 @@ public class Answer{
     int support;
     int against;
     int state;
+
     Date time;
 
     public int getAnswer_id() {

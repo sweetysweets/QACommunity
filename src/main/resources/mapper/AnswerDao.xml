@@ -44,6 +44,8 @@
         #{answer.state},
         #{answer.time,jdbcType = TIMESTAMP}
         )
+
     </insert>
+
 
 </mapper>

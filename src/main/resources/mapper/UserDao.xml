@@ -47,6 +47,11 @@
          #{user.token}
         )
     </insert>
+    <select id="getUserByIda" resultType="com.nju.zhihu.Entity.User">
+        select * from
+        user as u
+        where u.user_id = #{id}
+    </select>
     <!--<delete id="deleteUserById">-->
         <!--DELETE user WHERE ID = #{id}-->
     <!--</delete>-->

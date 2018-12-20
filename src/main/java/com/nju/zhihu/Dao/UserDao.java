@@ -18,4 +18,5 @@ public interface UserDao {
     List<User> getUserById(@Param("id") String token);
 
     User getUserByToken(@Param("id") String token);
+    User getUserByIda(@Param("id") int id);
 }

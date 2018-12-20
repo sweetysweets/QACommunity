@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nju.zhihu.Dao.AnsweruserDao">
+
+    <select id="getAnsweruser" resultType="com.nju.zhihu.Entity.Answeruser">
+        SELECT
+        a.user_id,
+        a.content,
+        a.support,
+        a.against,
+        a.answer_id,
+        u.nickname,
+        u.description,
+        u.avater
+        FROM answer as a , user as u
+        WHERE
+        a.user_id = u.user_id and
+        a.answer_id = #{answer_id}
+
+
+    </select>
+
+
+</mapper>
