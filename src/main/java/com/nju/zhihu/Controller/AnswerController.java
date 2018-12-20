@@ -20,7 +20,8 @@ import java.util.List;
 public class AnswerController {
     @Autowired(required = false)
     private AnswerDao answerDao;
-    public UpdatingDao updatingDao2;
+    @Autowired(required = false)
+    private UpdatingDao updatingDao2;
 
 
     @ResponseBody
@@ -55,7 +56,7 @@ public class AnswerController {
         updating.setQid(answer1.getQuestion_id());
         updating.setState(0);
         updating.setAid(answer1.getAnswer_id());
-
+        System.out.println(updating.toString());
         updatingDao2.addAnswerToUpdating(updating);
 //        System.out.println("fafaffffffffffffffffffffffff");
     }
