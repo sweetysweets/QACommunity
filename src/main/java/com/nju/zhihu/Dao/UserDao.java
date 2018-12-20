@@ -21,6 +21,7 @@ public interface UserDao {
 
     User getUserByToken(@Param("id") String token);
 
+
 //    List<User> getAllmyFollowUsers(@Param("id") );
 
     //插入关注用户记录
@@ -31,5 +32,8 @@ public interface UserDao {
 
     //取消关注用户
     void cancelFollowUser(@Param("followuserid") int followuserid);
+
+
+//    User getUserByIda(@Param("id") int id); 没用
 
 }

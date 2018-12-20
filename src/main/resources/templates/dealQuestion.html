@@ -94,7 +94,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="updateWindow()">关闭</button>
                 <button type="button" class="btn btn-primary" onclick="updateChange()">提交</button>
             </div>
         </div>
@@ -157,6 +157,31 @@
 		$('#tabquestion').append(str);
         }
     }
+    function delQuestion(node){
+        $('#delInfo').modal('show');
+	    var tr = node.parentNode.parentNode;
+	    var qid  = tr.cells[0].innerText;
+	    var str='';
+	    str='<input id="delQuesInfo" size="45" disable="disable"style="border:none" value="'+
+	    qid+
+	    '"/>'
+	    $('#delquestion').append(str);
+    }
+    function confirmDel(){
+        var qid =parseInt( $('#delQuesInfo').val());
+        $.ajax({
+            type:"POST",
+            url:"/deletequestion",
+            data:{"qid":qid},
+            success:function(){
+                 window.location.reload();
+            },error:function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert(XMLHttpRequest.status);
+                 alert(XMLHttpRequest.readyState);
+                 alert(textStatus);
+             }
+        });
+    }
     function showDialog(node){
         $('#changeInfo').modal('show');
         var tr = node.parentNode.parentNode;
@@ -192,7 +217,11 @@
 		            '</td></tr>'
 		            $('#tabAnswer').append(astr);
                 }
-            }
+            },error:function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert(XMLHttpRequest.status);
+                 alert(XMLHttpRequest.readyState);
+                 alert(textStatus);
+              }
         });
     }
     function delAnswer(node){
@@ -203,9 +232,33 @@
             data:{"aid":aid},
             url:"/answer/deleteanswer",
             success:function(){
-                alert('已成功删除')
-            }
+                alert('已成功删除');
+            },error:function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert(XMLHttpRequest.status);
+                 alert(XMLHttpRequest.readyState);
+                 alert(textStatus);
+              }
         });
+    }
+    function updateChange(){
+        var qid = $('#quesId').val();
+        var qstate = $('#quesState').val();
+        $.ajax({
+            type:"POST",
+            url:"/updatequestion",
+            data:{"qid":qid,"qstate":qstate},
+            success:function(data){
+                window.location.reload();
+            },error:function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert(XMLHttpRequest.status);
+                 alert(XMLHttpRequest.readyState);
+                 alert(textStatus);
+
+    }
+        });
+    }
+    function updateWindow(){
+        window.location.reload();
     }
 
 </script>

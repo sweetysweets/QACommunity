@@ -4,9 +4,7 @@ import com.nju.zhihu.Dao.UserDao;
 import com.nju.zhihu.Entity.FollowUser;
 import com.nju.zhihu.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +31,7 @@ public class UserController {
         return userMap;
     }
 
+
     //此方法与上面的/focus_users方法功能一致，不过我用的是List<User>，也是查询所有关注的用户列表
     //@Author: wsx
     @RequestMapping(value ="/getallmyfollowusers")
@@ -50,11 +49,19 @@ public class UserController {
 
     //取消关注该用户（答主），删除数据
     @RequestMapping(value = "/cancelmyfollowuser")
-    public int cancelMyFollowUser(@RequestParam("userid") int userid , @RequestParam("userfollowedid") int userfollowedid){
-        FollowUser fu = userDao.getFollowUserId(userid,userfollowedid);
+    public int cancelMyFollowUser(@RequestParam("userid") int userid , @RequestParam("userfollowedid") int userfollowedid) {
+        FollowUser fu = userDao.getFollowUserId(userid, userfollowedid);
         System.out.println(fu.getFuid());
 
         userDao.cancelFollowUser(fu.getFuid());
         return 0;
     }
+
+//    @ResponseBody
+//    @RequestMapping(value = "/getuserbyid",method = RequestMethod.GET)
+//    public User getUserByIda(@RequestParam("user_id") int user_id){
+//        User user = userDao.getUserByIda(user_id);
+//        System.out.println(user.getId());
+//        return user;
+//    }
 }

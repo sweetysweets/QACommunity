@@ -23,6 +23,7 @@ public interface QuestionDao {
     List<Question> getAllQuestion();
     Question getQuestionById(@Param("qid") int qid);
 
+
     List<Question> getAllMyFollowQuestions(@Param("userid") int userid);
 
     //插入关注问题记录
@@ -33,4 +34,7 @@ public interface QuestionDao {
 
     //取消关注
     void cancelFollowQuestion(@Param("followquestionid") int followquestionid);
+
+    void updateQuestion(@Param("qid") int qid,@Param("qstate") int qstate);
+
 }

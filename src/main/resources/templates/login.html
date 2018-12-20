@@ -40,7 +40,7 @@
                     <input type="text" id="password" name="password" class="form-control" placeholder="请输入用户密码" >
                 </div>
 
-            <button type="button" id="login"class="btn btn-primary block full-width m-b">登录</button>
+            <button type="button" id="login"class="btn btn-primary block full-width m-b" onclick="adminLogin()">登录</button>
 
 
 
@@ -48,6 +48,37 @@
     </div>
 
 </div>
+<script th:src="@{js/ref/jquery-2.1.4.min.js}"></script>
+<script th:src="@{js/ref/jquerysession.js}"></script>
+<script th:src="@{js/ref/bootstrap.js}"></script>
+<script>
+    function adminLogin(){
+        var aid = $('#userId').val();
+        var password = $('#password').val();
+        if(aid==''||password==''){
+            alert("请输入正确的用户名和密码");
+        }else{
+            $.ajax({
+                type:"POST",
+                url:"/admin/login",
+                data:{"aid":aid,"password":password},
+                success:function(data){
+                if(data==1){
+                    alert("用户名或密码错误");
+                }else if(data==0){
+                    window.location.href="/dealQuestion";
+                }else if(data==2){
+                    alert("用户名不存在");
+                }
 
+                },error:function(XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+                 }
+            });
+        }
+    }
+</script>
 </body>
 </html>
