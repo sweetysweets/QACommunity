@@ -23,4 +23,26 @@
     </select>
 
 
+    <select id="getAnswerusers" resultType="com.nju.zhihu.Entity.Answeruser">
+        SELECT
+        a.user_id,
+        a.content,
+        a.support,
+        a.against,
+        a.answer_id,
+        u.nickname,
+        u.description,
+        u.avater
+        FROM answer as a , user as u
+        WHERE
+        a.user_id = u.user_id and
+        a.question_id = #{question_id}
+        and
+        a.state != 2
+
+
+    </select>
+
+
+
 </mapper>

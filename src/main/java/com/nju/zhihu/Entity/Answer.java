@@ -12,6 +12,7 @@ public class Answer{
     int against;
     int state;
 
+
     Date time;
 
     int question_id;
