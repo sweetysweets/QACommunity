@@ -17,7 +17,7 @@ public interface UpdatingDao {
     List<Updating> getMyFocusUserAnswer (@Param("userid") int userid);
 
     //将回答更新信息 写入Updating表里面
-    void addAnswerToUpdating(@Param("answer1") Answer answer1);
+    void addAnswerToUpdating(@Param("updating") Updating updating);
 
 //    int updateUser(@Param("user") Admin user);
 //
