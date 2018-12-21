@@ -8,7 +8,9 @@ import com.nju.zhihu.Entity.Answer;
 import com.nju.zhihu.Entity.Comment;
 import com.nju.zhihu.Entity.Updating;
 import net.sf.json.JSONObject;
+//SpringBoot 注入依赖，必须要@Autowired，否则dao就是没初始化的状态
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Writer;
