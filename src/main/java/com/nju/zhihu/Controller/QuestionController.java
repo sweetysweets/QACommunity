@@ -2,10 +2,12 @@ package com.nju.zhihu.Controller;
 
 import com.nju.zhihu.Dao.AnswerDao;
 import com.nju.zhihu.Dao.QuestionDao;
+import com.nju.zhihu.Dao.UpdatingDao;
 import com.nju.zhihu.Dao.UserDao;
 import com.nju.zhihu.Entity.Answer;
 import com.nju.zhihu.Entity.FollowQuestion;
 import com.nju.zhihu.Entity.Question;
+import com.nju.zhihu.Entity.Updating;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.annotations.Param;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +32,8 @@ public class QuestionController {
     private  AnswerDao answerDao;
     @Autowired(required = false)
     private UserDao userDao;
+    @Autowired(required = false)
+    private UpdatingDao updatingDao;
     @RequestMapping(value = "/submitquestion")
     public int submitQuestion(@RequestParam("userid") int userid, @RequestParam("title") String title, @RequestParam("content") String content,@RequestParam("state") int state)throws ParseException {
         Date date = new Date(System.currentTimeMillis());
@@ -43,6 +49,19 @@ public class QuestionController {
         question.setTime(timestamp);
         question.setState(state);
         questionDao.addQuestion(question);
+        List<Question> questions=questionDao.getQuestionByUid(userid);
+        int tmp=0;
+        for(int i = 0;i<questions.size();i++) {
+           if(tmp<questions.get(i).getQid()){
+               tmp=questions.get(i).getQid();
+           }
+        }
+        Updating updating = new Updating();
+        updating.setQid(tmp);
+        updating.setType(1);
+        updating.setUid(userid);
+        updating.setState(state);
+        updatingDao.addQuestionToUpdate(updating);
         return 0;
 
     }

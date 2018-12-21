@@ -18,7 +18,7 @@ public interface UpdatingDao {
 
     //将回答更新信息 写入Updating表里面
     void addAnswerToUpdating(@Param("updating") Updating updating);
-
+    void addQuestionToUpdate(@Param("updating")Updating updating);
 //    int updateUser(@Param("user") Admin user);
 //
 //    int insertUser(@Param("user") Admin user);

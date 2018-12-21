@@ -2,6 +2,7 @@ package com.nju.zhihu.Dao;
 
 import com.nju.zhihu.Entity.FollowQuestion;
 import com.nju.zhihu.Entity.Question;
+import com.nju.zhihu.Entity.Updating;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
@@ -15,6 +16,7 @@ public interface QuestionDao {
     Question queryQuestionById(@Param("id") int id);
 
     void addQuestion(@Param("question")Question question);
+
     List <Question> getMyFocusUserQuestion (@Param("userid") int userid);
     List <Question> getMyFocusQuestion(@Param("userid") int userid);
     List <Question> getAllQuestions (@Param("userid") int userid);
@@ -23,7 +25,7 @@ public interface QuestionDao {
     List<Question> getAllQuestion();
     Question getQuestionById(@Param("qid") int qid);
 
-
+    List<Question> getQuestionByUid(@Param("uid") int uid);
     List<Question> getAllMyFollowQuestions(@Param("userid") int userid);
 
     //插入关注问题记录

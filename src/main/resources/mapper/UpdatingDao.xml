@@ -119,4 +119,13 @@ AND up.user_id IN (
             #{updating.aid}
         )
     </insert>
+	<insert id="addQuestionToUpdate">
+		INSERT INTO updating(type,user_id,question_id,state)
+		values(
+		#{updating.type},
+		#{updating.uid},
+		#{updating.qid},
+		#{updating.state}
+		)
+	</insert>
 </mapper>
