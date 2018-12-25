@@ -55,7 +55,8 @@
     function adminLogin(){
         var aid = $('#userId').val();
         var password = $('#password').val();
-        if(aid==''||password==''){
+        var reg= /^[0-9]+.?[0-9]*$/;
+        if(aid==''||password==''||!reg.test(aid)){
             alert("请输入正确的用户名和密码");
         }else{
             $.ajax({
